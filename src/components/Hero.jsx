@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './button'
 
 export default function Hero() {
   return (
@@ -15,9 +16,7 @@ export default function Hero() {
          unable to fit through doors.
         </p>
         
-        <button className='px-8 py-4 rounded-md border-[2px] bg-slate-950 border-green-400 border-solid greenShadow duration-300'>
-          <p>Accept & Begin</p>
-        </button>
+        <Button text={"Accept & Begin"}></Button>
     </div>
   )
 }
