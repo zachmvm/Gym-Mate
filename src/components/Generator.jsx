@@ -19,7 +19,7 @@ export default function Generator() {
   const [showModal, setShowModal] = useState(false)
   const [poison, setPoison] = useState('individual')
   const [muscles, setMuscles] = useState([])
-  const [goals, setGoals] = useState('strength_power')
+  const [goal, setGoal] = useState('strength_power')
 
 
   function toggleModal() {
@@ -32,7 +32,9 @@ export default function Generator() {
       <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
         {Object.keys(WORKOUTS).map((type, typeIndex) => {
           return (
-            <button className='bg-slate-950 border border-green-400 duration-200 hover:border-green-600 py-2 rounded-lg' key={typeIndex}>
+            <button onClick={() => {
+              setPoison(type)
+            }} className={'bg-slate-950 border duration-200 hover:border-green-600 py-3 rounded-lg' + (type === poison ? ' border-green-600' : 'border-green-400')} key={typeIndex}>
               <p className='capitalize'>{type.replaceAll('_','.')}</p>
             </button>
           )
@@ -49,7 +51,15 @@ export default function Generator() {
           <i className="fa-solid absolute right-3 top-1/2 <translate-y-1/2 fa-arrow-turn-down"></i>
         </button>
         {showModal && (
-          <div>modal</div>
+          <div className='flex flex-col p-3'>
+            {(poison === 'individual' ? WORKOUTS [poison] : Object.keys(WORKOUTS [poison])).map((muscleGroup, muscleGroupIndex) => {
+              return (
+                <button className='hover:text-green-400 duration-200' key={muscleGroupIndex}>
+                  <p className='uppercase'>{muscleGroup}</p>
+                </button>
+              )
+            })}
+          </div>
         ) }
       </div>
 
@@ -59,7 +69,9 @@ export default function Generator() {
       <div className='grid grid-cols-3 gap-4'>
         {Object.keys(SCHEMES).map((scheme, schemeIndex) => {
           return (
-            <button className='bg-slate-950 border border-green-400 duration-200 hover:border-green-600 py-2 rounded-lg' key={schemeIndex}>
+            <button onClick={() => {
+              setGoal(scheme)
+            }} className={'bg-slate-950 border duration-200 hover:border-green-600 py-3 rounded-lg' + (scheme === goal ? ' border-green-600' : 'border-green-400')} key={schemeIndex}>
               <p className='capitalize'>{scheme.replaceAll('_','.')}</p>
             </button>
           )
