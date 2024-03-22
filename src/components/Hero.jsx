@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './button'
+import Button from './Button'
 
 export default function Hero() {
   return (
@@ -16,7 +16,9 @@ export default function Hero() {
          unable to fit through doors.
         </p>
         
-        <Button text={"Accept & Begin"}></Button>
+        <Button func={() => {
+                window.location.href = '#generate'
+            }} text={"Accept & Begin"}></Button>
     </div>
   )
 }
