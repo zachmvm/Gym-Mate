@@ -50,7 +50,7 @@ export default function Generator(props) {
     }
 
     return (
-        <SectionWrapper id={'generate'} header={"generate your workout"} title={['It\'s', 'Huge', 'o\'clock']}>
+        <SectionWrapper id={'generate'} header={"generate your workout"} title={['It\'s', 'War', ' Time']}>
             <Header index={'01'} title={'Pick your poison'} description={"Select the workout you wish to endure."} />
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
                 {Object.keys(WORKOUTS).map((type, typeIndex) => {
@@ -58,7 +58,7 @@ export default function Generator(props) {
                         <button onClick={() => {
                             setMuscles([])
                             setPoison(type)
-                        }} className={'bg-slate-950 border  duration-200 px-4 hover:border-green-600 py-3 rounded-lg ' + (type === poison ? ' border-green-600' : ' border-green-400')} key={typeIndex}>
+                        }} className={'bg-slate-950 border  duration-200 px-4 hover:border-green-800 py-3 rounded-lg ' + (type === poison ? ' border-green-800' : ' border-green-400')} key={typeIndex}>
                             <p className='capitalize'>{type.replaceAll('_', " ")}</p>
                         </button>
                     )
@@ -90,13 +90,13 @@ export default function Generator(props) {
                     return (
                         <button onClick={() => {
                             setGoal(scheme)
-                        }} className={'bg-slate-950 border  duration-200 hover:border-green-600 py-3 rounded-lg px-4 ' + (scheme === goal ? ' border-green-600' : ' border-green-400')} key={schemeIndex}>
+                        }} className={'bg-slate-950 border  duration-200 hover:border-green-800 py-3 rounded-lg px-4 ' + (scheme === goal ? ' border-green-800' : ' border-green-400')} key={schemeIndex}>
                             <p className='capitalize'>{scheme.replaceAll('_', " ")}</p>
                         </button>
                     )
                 })}
             </div>
-            <Button func={updateWorkout} text={"Formulate"}></Button>
+            <Button classNam='px-2 py-2' func={updateWorkout} text={"Formulate"}></Button>
         </SectionWrapper>
 
     )
